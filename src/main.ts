@@ -11,10 +11,8 @@ import { useAuthStore } from "./stores/auth";
 
 async function initApp() {
   // 開發環境啟動 MSW
-  if (import.meta.env.DEV) {
-    const { worker } = await import("./mocks/browser");
-    await worker.start({ onUnhandledRequest: "bypass" });
-  }
+  const { worker } = await import("./mocks/browser");
+  await worker.start({ onUnhandledRequest: "bypass" });
 
   const app = createApp(App);
   const pinia = createPinia();
