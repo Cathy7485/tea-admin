@@ -1,0 +1,167 @@
+@use "@/style/base/grid" as *;
+
+.login-wrapper {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: url("/images/login-bg.webp") no-repeat center / cover;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100vh;
+    background: rgb(0 0 0 / 40%);
+  }
+
+  @include desktop {
+    flex-direction: column;
+  }
+}
+
+.login-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background: rgba(29, 29, 29, 0.7);
+  padding: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+  gap: 1.5rem;
+  z-index: 1;
+
+  // 卡片翻轉效果
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+
+  @include tablet-landscape {
+    padding: 2rem;
+    min-width: 80vw;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+    border: solid 1px rgba(255, 255, 255, 0.5);
+    pointer-events: none;
+  }
+
+  // 登入卡片
+  &.login {
+    .signup-card {
+      display: none;
+    }
+  }
+
+  // 註冊卡片
+  &.signup {
+    transform: translate(-50%, -50%) rotateY(180deg);
+
+    .login-card {
+      display: none;
+    }
+  }
+
+  .title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+
+    @include tablet-landscape {
+      flex-direction: column;
+    }
+  }
+}
+
+.signup-card {
+  transform: rotateY(180deg);
+}
+
+.login-form {
+  font-size: 1.125rem;
+
+  .is-required {
+    .el-form-item__label {
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
+
+.signup-bar {
+  text-align: right;
+  margin-bottom: 1.125rem;
+
+  .signup-btn {
+    background: transparent;
+    box-shadow: none;
+    outline: none;
+    border: none;
+    padding: 0;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+}
+
+// -------------------------
+
+.form-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-block {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  .el-form-item__label {
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+
+  .el-input__wrapper {
+    border-radius: 0;
+    background: transparent;
+    padding: 0 8px 0 0;
+  }
+
+  .el-input__inner {
+    background: transparent !important;
+    &.focus {
+      outline: none;
+    }
+
+    &:-webkit-autofill {
+      background: transparent;
+    }
+  }
+
+  input {
+    background: transparent;
+    color: white !important;
+    padding: 0.5rem;
+  }
+}
