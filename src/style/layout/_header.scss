@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: var(--theme-primary-50);
+  color: #fff;
+
+  .logo {
+    display: block;
+    width: 11rem;
+    height: 3.2rem;
+    background: url("/images/logo.png") no-repeat center center/ contain;
+    text-indent: -9999px;
+  }
+}
