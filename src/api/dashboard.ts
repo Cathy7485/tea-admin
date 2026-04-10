@@ -5,6 +5,7 @@ export interface DashboardStats {
   totalOrders: number;
   pendingOrders: number;
   revenue: number;
+  lowStockProducts: number;
 }
 
 export const dashboardApi = {

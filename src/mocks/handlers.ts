@@ -245,6 +245,7 @@ export const handlers = [
       revenue: orderList
         .filter((o) => o.status === "completed")
         .reduce((sum, o) => sum + o.total, 0),
+      lowStockProducts: productList.filter((o) => o.status === "low_stock").length,
     });
   }),
 ];

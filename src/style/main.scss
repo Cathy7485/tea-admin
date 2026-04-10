@@ -1,9 +1,11 @@
 @use "utils/helpers";
+@use "base/variables";
 @use "base/base";
 @use "base/grid";
 @use "components/button";
 @use "components/dialog";
 @use "components/table";
+@use "components/card";
 @use "layout/header";
 @use "layout/navbar";
 @use "layout/layout";

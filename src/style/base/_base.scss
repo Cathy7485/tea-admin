@@ -44,6 +44,7 @@ ul {
   --theme-primary: #11510f;
   --theme-primary-20: #0d470b;
   --theme-primary-50: #053403;
+  --theme-light-primary: #0c2a0bc7;
 
   // input 外框顏色
   --el-input-border-color: var(--theme-text-color);
@@ -99,7 +100,7 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   /* 利用巨大的內陰影 (inset shadow) 填滿背景，
       這裡的 transparent 是指讓陰影透明，
-      或是設定成與你背景相同的顏色 
+      或是設定成與背景相同的顏色 
   */
   -webkit-transition-delay: 99999s;
   -webkit-transition: background-color 99999s ease-out;
