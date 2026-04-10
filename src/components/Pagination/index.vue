@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import type { TPagination } from "@/types/schedule";
 
 const props = withDefaults(defineProps<TPagination>(), {
@@ -79,4 +79,4 @@ const goToPage = (page: number): void => {
       <img src="/images/arrow-right.png" alt="右鍵" />
     </button>
   </div>
-</template>
+</template> -->

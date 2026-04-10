@@ -39,12 +39,12 @@ const handleSwitchChange = async ({ row, value }: { row: any; value: boolean }) 
 
     // const result = await switchScheduleState(row.id, value);
 
-    if (result.success) {
-      row.schedule_state = value;
-      ElMessage.success(`已成功${actionText}排程`);
-    } else {
-      throw new Error("API 更新失敗");
-    }
+    // if (result.success) {
+    //   row.schedule_state = value;
+    //   ElMessage.success(`已成功${actionText}排程`);
+    // } else {
+    //   throw new Error("API 更新失敗");
+    // }
   } catch (err) {
     row.schedule_state = originalState;
 
@@ -61,15 +61,15 @@ const editGroup = computed(() => {
   const btnGroup: any[] = [];
   btnGroup.push({
     iconInfo: { component: IconEdit },
-    callback: (data: any) => {
-      // handleCallDialog("modify", data);
-    },
+    // callback: (data: any) => {
+    // handleCallDialog("modify", data);
+    // },
   });
   btnGroup.push({
     iconInfo: { component: IconDelete },
-    callback: (data: any) => {
-      // handleCallDialog("delete", data);
-    },
+    // callback: (data: any) => {
+    // handleCallDialog("delete", data);
+    // },
   });
 
   return {
@@ -82,11 +82,11 @@ const editGroup = computed(() => {
 // 分頁狀態
 const currentPage = ref(1);
 const limit = 6;
-const maxVisible = 5;
+// const maxVisible = 5;
 const currentPageData = ref<TProduct[]>([]);
 
 // 總計資料筆數
-const totalCount = computed(() => products.value?.length);
+// const totalCount = computed(() => products.value?.length);
 
 // 換頁及分頁呈現資料
 watch(
