@@ -2,6 +2,7 @@
 import ArrayCell from "./ArrayCell.vue";
 import SwitchCell from "./SwitchCell.vue";
 import DefaultCell from "./DefaultCell.vue";
+import ImageCell from "./ImageCell.vue";
 import { WEEK_LABEL } from "@/constants/schedule";
 
 const props = defineProps<{
@@ -58,6 +59,13 @@ const formatted = computed(() => {
       v-else-if="item.type === 'switch'"
       :modelValue="!!rawValue"
       @update:modelValue="(val) => switchCallback?.({ row: row, value: val })"
+    />
+
+    <!-- 圖片型 ImagesCell -->
+    <ImageCell
+      v-else-if="item.type === 'image'"
+      :imgUrl="rawValue"
+      :imgTitle="row.value || '產品圖片'"
     />
 
     <!-- 布林型： BooleanCell -->

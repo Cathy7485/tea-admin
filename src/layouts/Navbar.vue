@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import { useAuthStore } from "@/stores/auth";
 import { ElMessage, ElMessageBox } from "element-plus";
 
@@ -38,4 +38,4 @@ const handleLogout = async () => {
   </header>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped></style> -->

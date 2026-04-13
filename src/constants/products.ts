@@ -2,6 +2,7 @@ export const PRODUCTS_TABLE_HEAD = [
   {
     label: "產品",
     prop: "imageUrl",
+    type: "image",
   },
   {
     label: "產品名稱",
@@ -24,5 +25,13 @@ export const PRODUCTS_TABLE_HEAD = [
     label: "產品庫存",
     prop: "stock",
   },
-  { label: "上架中", prop: "status", type: "switch" },
+  {
+    label: "產品狀態",
+    prop: "status",
+  },
+  {
+    label: "上架狀態",
+    prop: "isListed",
+    type: "switch",
+  },
 ];

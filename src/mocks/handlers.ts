@@ -1,6 +1,6 @@
 import { http, HttpResponse } from "msw";
 import { products, orders, users } from "./fixtures";
-import type { ProductPayload } from "@/types/product";
+import type { ProductPayload, ProductStatus } from "@/types/product";
 import type { OrderStatus } from "@/types/order";
 import type { TAdminUser } from "@/types/user";
 
@@ -187,6 +187,21 @@ export const handlers = [
     productList[index] = {
       ...productList[index],
       ...body,
+      updatedAt: new Date().toISOString(),
+    };
+    return HttpResponse.json(productList[index]);
+  }),
+
+  // 產品上下架狀態切換
+  http.patch("/api/products/:id/status", async ({ params, request }) => {
+    const body = (await request.json()) as { isListed: boolean };
+    const index = productList.findIndex((p) => p.id === Number(params.id));
+
+    if (index === -1) return HttpResponse.json({ message: "商品不存在" }, { status: 404 });
+
+    productList[index] = {
+      ...productList[index],
+      isListed: body.isListed,
       updatedAt: new Date().toISOString(),
     };
     return HttpResponse.json(productList[index]);

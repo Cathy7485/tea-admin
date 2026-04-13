@@ -112,10 +112,11 @@
   background: transparent;
   color: white;
   border: 1px solid white;
+  cursor: pointer;
 
   &:hover {
     background: white;
-    color: white;
+    color: var(--theme-color);
   }
 }
 
@@ -128,11 +129,7 @@
   font-size: 1rem;
   font-weight: 700;
   color: var(--theme-color);
-  margin-bottom: 2rem;
-
-  &.record {
-    margin-top: 1rem;
-  }
+  margin-top: 1rem;
 
   button {
     display: inline-block;

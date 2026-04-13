@@ -1,5 +1,5 @@
 import client from "./client";
-import type { TProduct, ProductPayload } from "@/types/product";
+import type { TProduct, ProductPayload, ProductStatus } from "@/types/product";
 
 // 查詢參數型別
 export interface ProductQuery {
@@ -36,6 +36,11 @@ export const productsApi = {
   // 更新商品
   update(id: number, payload: ProductPayload) {
     return client.put<TProduct>(`/products/${id}`, payload);
+  },
+
+  // 更新商品狀態
+  toggleStatus(id: number, isListed: boolean) {
+    return client.patch<TProduct>(`/products/${id}/status`, { isListed });
   },
 
   // 刪除商品

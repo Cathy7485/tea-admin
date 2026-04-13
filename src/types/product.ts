@@ -5,11 +5,14 @@ export type TProduct = {
   category: string;
   price: number;
   stock: number;
-  status: "active" | "soldout" | "low_stock";
+  status: ProductStatus;
+  isListed: boolean;
   description: string;
   imageUrl: string;
   createdAt: string;
   updatedAt: string;
 };
+
+export type ProductStatus = "active" | "soldout" | "low_stock" | "draft";
 
 export type ProductPayload = Omit<TProduct, "id" | "createdAt" | "updatedAt">;

@@ -1,5 +1,5 @@
-<!-- <script setup lang="ts">
-import type { TPagination } from "@/types/schedule";
+<script setup lang="ts">
+import type { TPagination } from "@/types/pagination";
 
 const props = withDefaults(defineProps<TPagination>(), {
   maxVisible: 10,
@@ -79,4 +79,4 @@ const goToPage = (page: number): void => {
       <img src="/images/arrow-right.png" alt="右鍵" />
     </button>
   </div>
-</template> -->
+</template>

@@ -2,7 +2,7 @@
 import { useProductsStore } from "@/stores/products.ts";
 import TableWrapper from "@/components/Table/TableWrapper.vue";
 
-// import Pagination from "@/components/Pagination/index.vue";
+import Pagination from "@/components/Pagination/index.vue";
 import IconEdit from "@/components/icons/IconEdit.vue";
 import IconDelete from "@/components/icons/IconDelete.vue";
 import { PRODUCTS_TABLE_HEAD } from "@/constants/products.ts";
@@ -18,41 +18,25 @@ const { products } = storeToRefs(productsStore);
 const searchKey = ref("");
 
 // 列表switch 開關
-const handleSwitchChange = async ({ row, value }: { row: any; value: boolean }) => {
-  // 紀錄原始狀態
-  const originalState = !value;
-  const actionText = value ? "開啟" : "關閉";
-
-  // 將 UI 狀態改回原始狀態 (重要！防止彈窗時開關已經亮起)
-  row.schedule_state = originalState;
-
+const handleSwitchChange = async ({ row, value }: { row: TProduct; value: boolean }) => {
   try {
     await ElMessageBox.confirm(
-      `確定要${actionText}「${row.schedule_name}」排程嗎？`,
-      "修改排程狀態",
-      {
-        confirmButtonText: "確定",
-        cancelButtonText: "取消",
-        type: value ? "primary" : "warning",
-      },
+      `確定要${value ? "上架" : "下架"}「${row.name}」嗎？`,
+      "修改上架狀態",
+      { confirmButtonText: "確定", cancelButtonText: "取消" },
     );
 
-    // const result = await switchScheduleState(row.id, value);
+    await productsStore.toggleStatus(row.id, value);
+    row.isListed = value; // 同步更新 row
 
-    // if (result.success) {
-    //   row.schedule_state = value;
-    //   ElMessage.success(`已成功${actionText}排程`);
-    // } else {
-    //   throw new Error("API 更新失敗");
-    // }
+    ElMessage.success(`已${value ? "上架" : "下架"}`);
   } catch (err) {
-    row.schedule_state = originalState;
-
-    // 只有在非「取消」的情況下才報錯
-    if (err !== "cancel") {
-      ElMessage.error("更新狀態失敗，請稍後再試");
-      console.warn("切換失敗:", err);
+    if (err === "cancel" || err === "close") {
+      row.isListed = !value; // 取消 → switch 改回來
+      return;
     }
+    row.isListed = !value;
+    ElMessage.error("更新失敗，請稍後再試");
   }
 };
 
@@ -82,11 +66,11 @@ const editGroup = computed(() => {
 // 分頁狀態
 const currentPage = ref(1);
 const limit = 6;
-// const maxVisible = 5;
+const maxVisible = 5;
 const currentPageData = ref<TProduct[]>([]);
 
 // 總計資料筆數
-// const totalCount = computed(() => products.value?.length);
+const totalCount = computed(() => products.value?.length);
 
 // 換頁及分頁呈現資料
 watch(
@@ -111,6 +95,14 @@ onMounted(() => {
     :edit="editGroup"
     :switch="{ callback: handleSwitchChange }"
     :rowKey="'id'"
+  />
+
+  <Pagination
+    :totalCount="totalCount"
+    :limit="limit"
+    :maxVisible="maxVisible"
+    :isShowChart="false"
+    v-model:currentPage="currentPage"
   />
 </template>
 
