@@ -1,6 +1,6 @@
 import { http, HttpResponse } from "msw";
 import { products, orders, users } from "./fixtures";
-import type { ProductPayload, ProductStatus } from "@/types/product";
+import type { ProductPayload } from "@/types/product";
 import type { OrderStatus } from "@/types/order";
 import type { TAdminUser } from "@/types/user";
 

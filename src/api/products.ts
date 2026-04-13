@@ -1,5 +1,5 @@
 import client from "./client";
-import type { TProduct, ProductPayload, ProductStatus } from "@/types/product";
+import type { TProduct, ProductPayload } from "@/types/product";
 
 // 查詢參數型別
 export interface ProductQuery {

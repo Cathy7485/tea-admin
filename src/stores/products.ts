@@ -1,5 +1,5 @@
 import { productsApi } from "@/api";
-import type { ProductStatus, TProduct } from "@/types/product";
+import type { TProduct } from "@/types/product";
 
 export const useProductsStore = defineStore("productsStore", () => {
   const products = ref<TProduct[]>([]);
