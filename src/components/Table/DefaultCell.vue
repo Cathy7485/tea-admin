@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-import { STATUS_CLASS_MAP } from "@/constants/schedule";
+import { SCHEDULE_STATUS_CLASS_MAP } from "@/constants/schedule";
+import { PRODUCT_STATUS_CLASS_MAP } from "@/constants/products";
+
 const props = defineProps<{
   value: string | number | null | boolean;
   mapping?: Record<string, string>;
@@ -35,7 +37,8 @@ const cellClass = computed(() => {
   const classes: string[] = [];
 
   // 使用映射表管理樣式
-  const mappingClass = STATUS_CLASS_MAP[displayText.value];
+  const mappingClass =
+    SCHEDULE_STATUS_CLASS_MAP[displayText.value] || PRODUCT_STATUS_CLASS_MAP[displayText.value];
 
   if (mappingClass) {
     classes.push(mappingClass);

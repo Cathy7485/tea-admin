@@ -1,0 +1,29 @@
+@use "variables" as *;
+
+//  #{} 是 SCSS 的插值語法  作用： SCSS 變數的值「展開」成純文字放進 CSS 裡
+:root {
+  // 主題相關色
+  --theme-color: #{$color-primary};
+  --theme-text-color: #{$color-text-primary};
+  --theme-light-primary: #{rgba($color-primary-dark, 0.78)};
+
+  // input 外框顏色
+  --el-input-border-color: var(--theme-text-color);
+  --el-border-color: var(--theme-text-color);
+
+  // Element Plus 字體（繼承全域設定）
+  --el-font-size-extra-small: inherit;
+  --el-font-size-small: inherit;
+  --el-font-size-base: inherit;
+  --el-font-size-medium: inherit;
+  --el-font-size-large: inherit;
+  --el-font-size-extra-large: inherit;
+
+  // 狀態點顏色
+  --state-point-open: #{$color-success};
+  --state-point-close: #{$color-text-secondary};
+
+  // switch 顏色
+  --el-switch-on-color: #{$color-primary-light};
+  --el-switch-off-color: #{$color-border};
+}

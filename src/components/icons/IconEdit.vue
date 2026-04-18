@@ -23,7 +23,7 @@
 
 <script lang="ts" setup>
 const props = defineProps({
-  color: { type: String, default: "var(--theme-primary-20)" },
+  color: { type: String, default: "var(--theme-text-color)" },
   width: { type: Number, default: 1.5 },
   height: { type: Number, default: 1.5 },
 });

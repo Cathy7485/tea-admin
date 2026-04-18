@@ -1,14 +1,27 @@
-@use "utils/helpers";
-@use "base/variables";
+@use "abstracts";
+
+// Base
+@use "base/reset";
 @use "base/base";
 @use "base/grid";
-@use "components/button";
-@use "components/dialog";
-@use "components/table";
-@use "components/card";
+@use "base/typography";
+
+// Layout
 @use "layout/header";
 @use "layout/navbar";
 @use "layout/layout";
+
+// Components
+@use "components/button";
+@use "components/card";
+@use "components/dialog";
+@use "components/table";
+@use "components/pagination";
+
+// Vendors 第三方套件樣式改寫
 @use "vendors/vendors";
+
+// Pages
 @use "pages/login";
 @use "pages/index";
+@use "pages/dashboard";

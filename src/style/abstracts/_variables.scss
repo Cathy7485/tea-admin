@@ -1,0 +1,69 @@
+@use "functions" as *;
+
+// 顏色
+$color-primary: #11510f;
+$color-primary-light: #52b788;
+$color-primary-dark: #053403;
+
+$color-danger: #ff4141;
+$color-warning: #f4a261;
+$color-success: #40916c;
+$color-info: #2b3e92;
+
+$color-text-primary: #434343;
+$color-text-secondary: #6b7280;
+$color-border: #e5e7eb;
+$color-bg: #f9fafb;
+$color-white: #ffffff;
+
+// 文字相關設定
+$font-sans: "Noto Sans TC", system-ui, sans-serif;
+$font-mono: "JetBrains Mono", monospace;
+
+$font-size-base: rem(16);
+
+// 行高
+$line-height-base: 1.6; // 內文
+$line-height-heading: 1.2; // 標題
+
+$font-weight-black: 900;
+$font-weight-bold: 700;
+$font-weight-medium: 600;
+$font-weight-normal: 400;
+$font-weight-light: 300;
+
+$font-size-xl: rem(40);
+$font-size-lg: rem(24);
+$font-size-title: rem(20);
+
+// 間距(4的倍數)
+$spacing-1: rem(4);
+$spacing-2: rem(8);
+$spacing-3: rem(12);
+$spacing-4: rem(16);
+$spacing-5: rem(20);
+$spacing-6: rem(24);
+$spacing-8: rem(32);
+$spacing-10: rem(40);
+
+// Icon尺寸
+$icon-sm: rem(16);
+$icon-md: rem(24);
+$icon-lg: rem(32);
+$icon-xl: rem(40);
+
+// 圓角
+$radius-sm: rem(4);
+$radius-md: rem(8);
+$radius-lg: rem(12);
+
+// 陰影
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+$shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+// 動畫漸變
+$transition-base: 0.3s;
+
+// Layout相關區塊元件
+$sidebar-width: 240px;
+$header-height: 60px;

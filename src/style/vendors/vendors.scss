@@ -1,3 +1,44 @@
+// 瀏覽器
+// 卷軸樣式
+::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0.25rem;
+}
+
+//上下箭頭
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--theme-color);
+  border-radius: 0.9375rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(67, 115, 136, 0.2);
+  border-radius: 0.9375rem;
+}
+
+/* 針對 Chrome, Edge, Safari 的自動填入樣式 */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  /* 利用巨大的內陰影 (inset shadow) 填滿背景，
+      這裡的 transparent 是指讓陰影透明，
+      或是設定成與背景相同的顏色 
+  */
+  -webkit-transition-delay: 99999s;
+  -webkit-transition: background-color 99999s ease-out;
+}
+
+/* 強制隱藏瀏覽器自動填入背景顏色 */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px rgba(39, 39, 39, 0.2) inset !important; // 修改背景色改為透明
+  -webkit-text-fill-color: #ffffff !important; // 修改顏色
+}
+
 // element-plus
 .el-form-item {
   width: 100%;

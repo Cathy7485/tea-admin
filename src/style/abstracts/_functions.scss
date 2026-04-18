@@ -1,0 +1,11 @@
+@use "sass:math";
+
+// px轉rem
+@function rem($pixels) {
+  @return math.div($pixels, 16) * 1rem;
+}
+
+// 顏色透明度
+@function rgba-color($color, $opacity) {
+  @return rgba($color, $opacity);
+}

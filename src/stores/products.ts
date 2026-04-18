@@ -16,8 +16,6 @@ export const useProductsStore = defineStore("productsStore", () => {
   const fetchProducts = async () => {
     try {
       const { data } = await productsApi.getList();
-
-      console.log("data", data);
       products.value = data.data;
 
       pagination.limit = data.limit;

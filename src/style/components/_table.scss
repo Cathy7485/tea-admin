@@ -1,4 +1,6 @@
 @use "@/style/base/grid" as *;
+@use "@/style/abstracts/variables" as *;
+
 .select-img-block {
   display: flex;
   justify-content: center;
@@ -225,7 +227,38 @@
     border-radius: 0.5rem;
     min-width: 4.75rem;
   }
+
+  .label {
+    padding: 0.5rem;
+
+    // 產品狀態樣式
+    &.status-active {
+      font-size: 0.875rem;
+      font-weight: 700;
+      background-color: #e8f5e9;
+      color: #388e3c;
+    }
+    &.status-soldout {
+      font-size: 0.875rem;
+      font-weight: 700;
+      background-color: #ffebee;
+      color: #d32f2f;
+    }
+    &.status-low-stock {
+      font-size: 0.875rem;
+      font-weight: 700;
+      background-color: #fff3e0;
+      color: #f57c00;
+    }
+    &.status-draft {
+      font-size: 0.875rem;
+      font-weight: 700;
+      background-color: #e0e0e0;
+      color: #616161;
+    }
+  }
 }
+
 // 循環
 .array-cell {
   .cycle-label {
@@ -234,8 +267,8 @@
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.5;
-    color: var(--theme-primary-50);
-    border-color: var(--theme-primary-50);
+    color: $color-primary-dark;
+    border-color: $color-primary-dark;
     border: solid 0.0625rem;
     border-radius: 0.5rem;
   }

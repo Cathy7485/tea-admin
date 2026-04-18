@@ -1,19 +1,21 @@
+// pages/_login.scss
+@use "@/style/abstracts" as *;
 @use "@/style/base/grid" as *;
 
+// ==================
+// 登入頁外層
+// ==================
 .login-wrapper {
   display: flex;
   width: 100vw;
   height: 100vh;
   background: url("/images/login-bg.webp") no-repeat center / cover;
 
+  // 背景遮罩
   &::after {
     content: "";
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100vh;
+    inset: 0; // 取代 top/left/transform 置中寫法
     background: rgb(0 0 0 / 40%);
   }
 
@@ -22,52 +24,51 @@
   }
 }
 
+// ==================
+// 登入卡片容器
+// ==================
 .login-inner {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: $color-white;
   background: rgba(29, 29, 29, 0.7);
-  padding: 3.5rem;
+  padding: rem(56);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   flex: 1;
-  gap: 1.5rem;
+  gap: rem(24);
   z-index: 1;
 
-  // 卡片翻轉效果
   perspective: 1000px;
   transform-style: preserve-3d;
   transition: transform 0.8s ease;
 
   @include tablet-landscape {
-    padding: 2rem;
+    padding: rem(32);
     min-width: 80vw;
   }
 
+  // 內框線裝飾
   &::before {
     content: "";
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    height: 90%;
-    border: solid 1px rgba(255, 255, 255, 0.5);
+    inset: 5%; // 取代 top/left/transform + width/height 90% 寫法
+    border: 1px solid rgba($color-white, 0.5);
     pointer-events: none;
   }
 
-  // 登入卡片
+  // 登入狀態
   &.login {
     .signup-card {
       display: none;
     }
   }
 
-  // 註冊卡片
+  // 註冊狀態（翻轉效果）
   &.signup {
     transform: translate(-50%, -50%) rotateY(180deg);
 
@@ -81,10 +82,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
+    gap: rem(16);
+    font-size: rem(20);
+    font-weight: $font-weight-bold;
+    margin-bottom: rem(16);
 
     @include tablet-landscape {
       flex-direction: column;
@@ -92,25 +93,33 @@
   }
 }
 
+// ==================
+// 註冊卡片（翻轉備用）
+// ==================
 .signup-card {
   transform: rotateY(180deg);
 }
 
+// ==================
+// 登入表單
+// ==================
 .login-form {
-  font-size: 1.125rem;
+  font-size: rem(18);
 
+  // 隱藏 Element Plus 預設必填星號（自己用 required-label 控制）
   .is-required {
-    .el-form-item__label {
-      &::before {
-        display: none;
-      }
+    .el-form-item__label::before {
+      display: none;
     }
   }
 }
 
+// ==================
+// 切換註冊列
+// ==================
 .signup-bar {
   text-align: right;
-  margin-bottom: 1.125rem;
+  margin-bottom: rem(18);
 
   .signup-btn {
     background: transparent;
@@ -118,14 +127,20 @@
     outline: none;
     border: none;
     padding: 0;
-    color: white;
-    font-size: 1rem;
+    color: $color-white;
+    font-size: rem(16);
     cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.75; // 補上 hover 回饋，原本沒有
+    }
   }
 }
 
-// -------------------------
-
+// ==================
+// 表單欄位區塊
+// ==================
 .form-block {
   display: flex;
   flex-direction: column;
@@ -134,34 +149,32 @@
 .input-block {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: rem(16);
 
+  // Element Plus 覆寫
   .el-form-item__label {
-    color: white;
-    font-size: 1.125rem;
-    font-weight: 600;
+    color: $color-white;
+    font-size: rem(18);
+    font-weight: $font-weight-medium;
   }
 
   .el-input__wrapper {
     border-radius: 0;
     background: transparent;
-    padding: 0 8px 0 0;
+    padding: 0 rem(8) 0 0;
   }
 
   .el-input__inner {
     background: transparent !important;
-    &.focus {
-      outline: none;
-    }
 
-    &:-webkit-autofill {
-      background: transparent;
+    &:focus {
+      outline: none;
     }
   }
 
   input {
     background: transparent;
-    color: white !important;
-    padding: 0.5rem;
+    color: $color-white !important;
+    padding: rem(8);
   }
 }

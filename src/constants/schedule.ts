@@ -100,7 +100,7 @@ export const WEEK_LABEL: Record<number, string> = {
 };
 
 // table元件中的標籤狀態CLASS對照表
-export const STATUS_CLASS_MAP: Record<string, string> = {
+export const SCHEDULE_STATUS_CLASS_MAP: Record<string, string> = {
   單次: "once",
   循環: "cycle-default",
   平日: "cycle-weekday",

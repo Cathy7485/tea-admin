@@ -1,4 +1,5 @@
 @use "@/style/base/grid" as *;
+@use "@/style/abstracts/index" as *;
 
 // 遮罩
 .dialog-wrapper {
@@ -95,60 +96,37 @@
 
 .dialog-title {
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 1.25rem;
-  font-weight: 700;
-  line-height: 1.5;
-  color: white;
-  padding: 0.75rem 1rem;
+  @include flex-center;
+  font-size: $font-size-title;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-base;
+  color: $color-white;
+  padding: $spacing-4 $spacing-6;
   background: var(--theme-color);
 
   .close-btn {
     position: relative;
-    display: none;
-    width: 1.875rem;
-    height: 1.875rem;
-    font-size: 1.25rem;
-    font-weight: 300;
+    width: $spacing-4;
+    height: $spacing-4;
+    font-size: $font-size-title;
+    font-weight: $font-weight-light;
     text-align: center;
-    transition: all 0.3s;
-    text-indent: -9999px;
     cursor: pointer;
+    text-indent: -9999px;
+    @include transition-all;
 
     &::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(45deg);
-      width: 0.125rem;
-      height: 1.625rem;
-      background: var(--theme-text-color);
-      transition: all 0.3s;
+      @include cross-icon(45deg);
     }
 
     &::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(-45deg);
-      width: 0.125rem;
-      height: 1.625rem;
-      background-color: var(--theme-text-color);
-      transition: all 0.3s;
+      @include cross-icon(-45deg);
     }
 
     &:hover {
-      transition: all 0.3s;
-      &::before {
-        background-color: var(--theme-color);
-      }
-
+      &::before,
       &::after {
-        background-color: var(--theme-color);
+        background-color: $color-primary-dark;
       }
     }
   }

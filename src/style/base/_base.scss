@@ -1,113 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap");
-
-* {
-  box-sizing: border-box;
-  font-family: "Noto Serif TC", serif;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
+@use "@/style/abstracts/variables" as *;
 
 html {
-  font-family: "Noto Serif TC", serif;
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
-  font-size: clamp(1rem, 1rem + 1vw, 1rem);
   box-sizing: border-box;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
 }
 
 #app {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  // overflow-y: auto;
-
   background: rgba(233, 239, 245, 1);
   display: flex;
   flex-direction: column;
-}
-
-:root {
-  //主題相關色
-  --theme-color: #11510f;
-  --theme-bg-color: #011c37;
-  --theme-text-color: rgba(67, 67, 67, 1);
-  --theme-primary: #11510f;
-  --theme-primary-20: #0d470b;
-  --theme-primary-50: #053403;
-  --theme-light-primary: #0c2a0bc7;
-
-  // input 外框顏色
-  --el-input-border-color: var(--theme-text-color);
-  --el-border-color: var(--theme-text-color);
-
-  --el-font-size-extra-small: inherit;
-  --el-font-size-small: inherit;
-  --el-font-size-base: inherit; /* 預設文字大小 */
-  --el-font-size-medium: inherit;
-  --el-font-size-large: inherit;
-  --el-font-size-extra-large: inherit;
-
-  --bs-font-sans-serif: "Noto Sans TC";
-
-  // 狀態點開關顏色
-  --state-point-open: rgba(93, 214, 109, 1);
-  --state-point-close: rgb(179, 179, 179);
-
-  // switch
-  --el-switch-on-color: rgba(108, 217, 164, 1);
-  --el-switch-off-color: rgba(221, 229, 237, 1);
-}
-
-.custom-border {
-  border: 0.0625rem solid white !important;
-}
-
-// 卷軸樣式
-::-webkit-scrollbar {
-  width: 0.25rem;
-  height: 0.25rem;
-}
-
-//上下箭頭
-::-webkit-scrollbar-button {
-  display: none;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: var(--theme-color);
-  border-radius: 0.9375rem;
-}
-
-::-webkit-scrollbar-track {
-  background-color: rgba(67, 115, 136, 0.2);
-  border-radius: 0.9375rem;
-}
-
-/* 針對 Chrome, Edge, Safari 的自動填入樣式 */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  /* 利用巨大的內陰影 (inset shadow) 填滿背景，
-      這裡的 transparent 是指讓陰影透明，
-      或是設定成與背景相同的顏色 
-  */
-  -webkit-transition-delay: 99999s;
-  -webkit-transition: background-color 99999s ease-out;
-}
-
-/* 強制隱藏瀏覽器自動填入背景顏色 */
-input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px rgba(39, 39, 39, 0.2) inset !important; // 修改背景色改為透明
-  -webkit-text-fill-color: #ffffff !important; // 修改顏色
 }

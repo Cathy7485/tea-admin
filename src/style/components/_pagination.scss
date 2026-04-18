@@ -1,0 +1,74 @@
+// components/_pagination.scss
+@use "@/style/abstracts" as *;
+
+.page-controller {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: rem(16);
+  font-weight: $font-weight-bold;
+  color: var(--theme-color);
+  margin-top: rem(16);
+
+  button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: rem(32);
+    background: var(--theme-color);
+    border: none;
+    border-radius: rem(2);
+    padding: rem(4);
+    color: $color-white;
+    font-weight: $font-weight-bold;
+    transition: background 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      background: $color-primary-dark;
+    }
+
+    &.disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    &.hidden {
+      display: none;
+    }
+
+    &:first-child {
+      margin-right: rem(24);
+    }
+    &:last-child {
+      margin-left: rem(24);
+    }
+  }
+
+  .page-num {
+    padding: rem(4) rem(8);
+    margin: 0 rem(4);
+    color: $color-text-primary;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.3s;
+
+    &:hover {
+      color: var(--theme-color);
+      opacity: 1;
+    }
+
+    &.active {
+      font-size: rem(20);
+      cursor: default;
+      opacity: 1;
+
+      &:hover {
+        color: $color-text-primary;
+        background: transparent;
+      }
+    }
+  }
+}

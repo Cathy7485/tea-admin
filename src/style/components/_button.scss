@@ -1,55 +1,63 @@
+// components/_button.scss
+@use "@/style/abstracts" as *;
+
+// ==================
+// 基礎按鈕
+// ==================
 .button {
   height: auto;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem 1.5rem;
+  padding: rem(8) rem(24);
   border-radius: 0;
   background: transparent;
   border: none;
   color: var(--theme-color);
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.2;
+  font-size: rem(16);
+  font-weight: $font-weight-bold;
+  line-height: $line-height-heading;
   outline: none;
   cursor: pointer;
+  transition: all 0.2s;
 
   &:hover {
-    color: white;
+    color: $color-white;
     background: var(--theme-color);
   }
 
   &:active {
-    color: white;
+    color: $color-white;
     background: var(--theme-color);
     transform: scale(0.95);
   }
 
   &:focus-visible {
-    color: white;
+    color: $color-white;
     background: var(--theme-color);
     outline: none;
   }
 
   &:disabled {
     background: transparent;
-    cursor: default;
+    opacity: 0.5;
+    cursor: not-allowed;
 
     &:hover {
       background: transparent;
+      color: var(--theme-color);
     }
   }
 
   &.active {
     background: var(--theme-color);
-    color: white;
-    box-shadow: 0px 0px 0px 0.09375remvar (--theme-color);
+    color: $color-white;
+    box-shadow: 0 0 0 rem(1.5) var(--theme-color);
 
     &:hover {
       background: var(--theme-color);
-      color: white;
-      box-shadow: 0px 0px 0px 0.09375rem var(--theme-color);
-      transition: all 0.5s;
+      color: $color-white;
+      box-shadow: 0 0 0 rem(1.5) var(--theme-color);
     }
   }
 
@@ -60,166 +68,88 @@
     opacity: 0;
   }
 
+  // Element Plus 按鈕
   &.el-button {
-    height: auto;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.5rem 1.5rem;
-    border-radius: 0;
     background: var(--theme-color);
-    border: none;
-    color: white;
-    font-size: 1rem;
-    font-weight: 350;
-    line-height: 1.2;
-    outline: none;
-    cursor: pointer;
+    color: $color-white;
+    font-weight: $font-weight-normal;
 
     &:hover {
-      background: var(--theme-primary-50);
+      background: $color-primary-dark;
+      color: $color-white;
     }
   }
 }
 
+// ==================
+// 實心主色按鈕
+// ==================
 .primary-button {
   position: relative;
   background: var(--theme-color);
-  color: white;
+  color: $color-white;
+  transition: background 0.2s;
 
   span {
     position: relative;
-    color: white;
+    color: $color-white;
     z-index: 2;
   }
 
   &::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
     inset: 0;
-    border-radius: 0.5rem;
+    border-radius: rem(8);
     z-index: 0;
   }
 
   &:hover {
-    background: var(--theme-primary-50);
+    background: $color-primary-dark;
   }
 }
 
+// ==================
+// 外框按鈕
+// ==================
 .outline-button {
   background: transparent;
-  color: white;
-  border: 1px solid white;
+  color: $color-white;
+  border: 1px solid $color-white;
   cursor: pointer;
+  transition: all 0.2s;
 
   &:hover {
-    background: white;
+    background: $color-white;
     color: var(--theme-color);
   }
 }
 
-// 分頁按鈕
-.page-controller {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--theme-color);
-  margin-top: 1rem;
-
-  button {
-    display: inline-block;
-    height: 2rem;
-    background: var(--theme-color);
-    box-shadow: none;
-    border: none;
-    border-radius: 2px;
-    padding: 0.25rem;
-    color: white;
-    font-weight: 700;
-    transition: all 0.3s;
-    cursor: pointer;
-
-    &:hover {
-      background: var(--theme-color);
-      transition: all 0.3s;
-    }
-
-    &.disabled {
-      opacity: 0.5;
-      pointer-events: none;
-    }
-
-    &.hidden {
-      display: none;
-    }
-
-    &:first-child {
-      margin-right: 1.5rem;
-    }
-
-    &:last-child {
-      margin-left: 1.5rem;
-    }
-  }
-
-  .page-num {
-    padding: 0.25rem 0.5rem;
-    margin: 0 0.25rem;
-    transition: all 0.3s;
-    color: rgba(77, 84, 81, 1);
-    text-decoration: none;
-    cursor: pointer;
-    opacity: 0.5;
-
-    &:hover {
-      color: var(--theme-color);
-      opacity: 1;
-      transition: all 0.3s;
-    }
-
-    &.active {
-      font-size: 1.25rem;
-      cursor: initial;
-      opacity: 1;
-
-      &:hover {
-        color: rgba(77, 84, 81, 1);
-        background: transparent;
-      }
-    }
-  }
-}
-
-// 區域總覽表格按鈕正常顏色
-.button-bg-white {
-  background-color: rgba(155, 173, 205, 0.5) !important;
-}
-
-// table右側的按鈕
+// ==================
+// 表格右側操作按鈕
+// ==================
 .actions-buttons {
   display: flex;
   align-items: center;
   margin-left: auto;
 
   .el-button {
-    padding: 0.4375rem;
+    padding: rem(7);
   }
 }
 
+// ==================
+// 左側 sidebar 按鈕群組
+// ==================
 .layout-left {
   .system-button-group {
     height: auto;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: rem(12);
 
     .button {
       width: 100%;
-      padding: 0.5rem;
+      padding: rem(8);
       margin: 0;
     }
   }

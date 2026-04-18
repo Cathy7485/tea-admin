@@ -1,0 +1,39 @@
+@use "variables" as *;
+@use "functions" as *;
+
+// 定位排版
+@mixin flex-center($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin center-absolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// 動畫漸變
+@mixin transition-all($duration: $transition-base) {
+  transition: all $duration;
+}
+
+// 彈窗關閉叉叉
+@mixin cross-icon($rotation, $size: rem(2), $length: 1.625rem) {
+  content: "";
+  @include center-absolute;
+  transform: translate(-50%, -50%) rotate($rotation);
+  width: $size;
+  height: $length;
+  background-color: $color-white;
+  @include transition-all;
+}

@@ -1,8 +1,10 @@
-<!-- <script setup lang="ts">
+<script setup lang="ts">
 import { useAuthStore } from "@/stores/auth";
 import { ElMessage, ElMessageBox } from "element-plus";
 
+const route = useRoute();
 const router = useRouter();
+const auth = useAuthStore();
 
 const authStore = useAuthStore();
 const { logout } = authStore;
@@ -17,7 +19,8 @@ const handleLogout = async () => {
 
     await logout();
     ElMessage.success("登出成功");
-    router.push("/login");
+
+    router.push({ name: "login" });
   } catch (error) {
     if (error === "cancel") {
       // 取消
@@ -30,12 +33,14 @@ const handleLogout = async () => {
 </script>
 
 <template>
-  <header class="header">
-    <h1 class="logo">
-      <router-link to="/">茶葉管理系統</router-link>
-    </h1>
-    <button type="button" class="button outline-button" @click.prevent="handleLogout">登出</button>
+  <header class="admin-header">
+    <h1 class="admin-header__title">{{ route.meta.title }}</h1>
+
+    <div class="admin-header__actions">
+      <span class="admin-header__user">{{ auth.user?.name }}</span>
+      <button class="button outline-button" @click="handleLogout">登出</button>
+    </div>
   </header>
 </template>
 
-<style lang="scss" scoped></style> -->
+<style lang="scss" scoped></style>
